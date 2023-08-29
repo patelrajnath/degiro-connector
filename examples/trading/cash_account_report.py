@@ -2,6 +2,8 @@
 import datetime
 import json
 import logging
+import pandas as pd
+import io
 
 from degiro_connector.trading.api import API as TradingAPI
 from degiro_connector.trading.models.trading_pb2 import (
@@ -40,8 +42,8 @@ trading_api.connect()
 # SETUP REQUEST
 today = datetime.date.today()
 from_date = CashAccountReport.Request.Date(
-    year=2020,
-    month=1,
+    year=today.year,
+    month=today.month,
     day=1,
 )
 to_date = CashAccountReport.Request.Date(
@@ -67,4 +69,7 @@ content = cash_account_report.content
 
 # DISPLAY FILE CONTENT
 print("Format :", format)
-print("Content :", content)
+# print("Content :", content)
+# print("Content :", type(content))
+df = pd.read_csv(io.StringIO(content), sep=",", names=['Date','Time','Value date','Product','ISIN','Description','FX','Change','Balance','Order ID'])
+print(df.Balance[1])
