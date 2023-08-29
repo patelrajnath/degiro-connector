@@ -38,7 +38,7 @@ trading_api.connect()
 
 # SETUP REQUEST
 request = ProductsInfo.Request()
-request.products.extend([96008, 1153605, 5462588])
+request.products.extend([16238669])
 
 # FETCH DATA
 products_info = trading_api.get_products_info(
@@ -47,4 +47,5 @@ products_info = trading_api.get_products_info(
 )
 
 # DISPLAY PRODUCTS_INFO
-print(products_info)
+# print(products_info['data'].get('16238669').get('closePrice'))
+print(products_info['data'].get('16238669').get('closePrice'))
