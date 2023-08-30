@@ -36,10 +36,10 @@ trading_api.connect()
 
 # SETUP REQUEST
 request_lookup = ProductSearch.RequestLookup(
-    search_text="APPLE",
+    search_text="Vanguard S&P 500 UCITS ETF USD Acc",
     limit=2,
     offset=0,
-    product_type_id=1,
+    product_type_id=0,
 )
 
 # FETCH DATA
