@@ -13,7 +13,7 @@ from degiro_connector.trading.models.trading_pb2 import Credentials, Order, Cash
 logging.basicConfig(level=logging.DEBUG)
 
 # SETUP CONFIG DICT
-with open("config/config.json") as config_file:
+with open("/home/patelrajnath/degiro-connector/config/config.json") as config_file:
     config_dict = json.load(config_file)
 
 # SETUP CREDENTIALS
