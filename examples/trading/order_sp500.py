@@ -82,7 +82,7 @@ products_info = trading_api.get_products_info(
 
 # DISPLAY PRODUCTS_INFO
 # print(products_info['data'].get('16238669').get('closePrice'))
-bid_price = products_info['data'].get('16238669').get('closePrice') + 1
+bid_price = products_info['data'].get('16954338').get('closePrice') + 1
 units = floor(current_balance/bid_price)
 if units:
     # SETUP ORDER
