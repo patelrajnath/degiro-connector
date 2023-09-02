@@ -1,0 +1,4 @@
+#36 15 * * * /usr/bin/python3  /home/patelrajnath/degiro-connector/examples/trading/account_infos.py >> /home/patelrajnath/degiro-connector/order.log 2>&1
+#00 10 05 */2 * /usr/bin/python3  /home/patelrajnath/degiro-connector/examples/trading/account_infos.py
+00 09 */2 * * /usr/bin/python3  /home/patelrajnath/degiro-connector/examples/trading/order.py >> /home/patelrajnath/degiro-connector/order.log 2>&1
+00 09 1-11/2 * * /usr/bin/python3  /home/patelrajnath/degiro-connector/examples/trading/order_sp500.py >> /home/patelrajnath/degiro-connector/order_sp500.log 2>&1
