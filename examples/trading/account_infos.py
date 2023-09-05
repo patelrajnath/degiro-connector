@@ -6,10 +6,12 @@ from degiro_connector.trading.api import API as TradingAPI
 from degiro_connector.trading.models.trading_pb2 import Credentials
 
 # SETUP LOGGING LEVEL
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s.%(msecs)03d %(levelname)s %(module)s - %(funcName)s: %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S',)
 
 # SETUP CONFIG DICT
-with open("config/config.json") as config_file:
+with open("/home/patelrajnath/degiro-connector/config/config.json") as config_file:
     config_dict = json.load(config_file)
 
 # SETUP CREDENTIALS
