@@ -115,8 +115,8 @@ if units:
         confirmation_id=confirmation_id, order=order
     )
 
-    print(checking_response)
-    print(confirmation_response)
+    logging.info(checking_response)
+    logging.info(confirmation_response)
 else:
-    print(f'No sufficient balance to by even a single unit')
-    print(f'current_balance:{current_balance}, bid_price:{bid_price}, possible to buy units:{units}')
+    logging.info(f'No sufficient balance to by even a single unit')
+    logging.info(f'current_balance:{current_balance}, bid_price:{bid_price}, possible to buy units:{units}')
