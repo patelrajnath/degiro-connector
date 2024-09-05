@@ -51,4 +51,3 @@ TOP_NEWS_PREVIEW = (
 )
 TRANSACTIONS_HISTORY = "https://trader.degiro.nl/portfolio-reports/secure/v4/transactions"
 UPDATE = "https://trader.degiro.nl/trading/secure/v5/update"
-

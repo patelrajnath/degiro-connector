@@ -44,8 +44,8 @@ trading_api.connect()
 # SETUP REQUEST
 today = datetime.date.today()
 from_date = CashAccountReport.Request.Date(
-    year=today.year - 1,
-    month=1,
+    year=today.year,
+    month=today.month,
     day=1,
 )
 to_date = CashAccountReport.Request.Date(
@@ -70,10 +70,11 @@ cash_account_report = trading_api.get_cash_account_report(
 content = cash_account_report.content
 df = pd.read_csv(io.StringIO(content), sep=",", names=['Date','Time','Value date','Product','ISIN','Description','FX','Change','Balance','Order ID'])
 current_balance = df.Balance[1]
+
 # Get the closePrice
 # SETUP REQUEST
 request = ProductsInfo.Request()
-request.products.extend([16238669])
+request.products.extend([16954338])
 
 # FETCH DATA
 products_info = trading_api.get_products_info(
@@ -83,7 +84,7 @@ products_info = trading_api.get_products_info(
 
 # DISPLAY PRODUCTS_INFO
 # print(products_info['data'].get('16238669').get('closePrice'))
-bid_price = products_info['data'].get('16238669').get('closePrice') + 0.5
+bid_price = products_info['data'].get('16954338').get('closePrice') + 0.5
 units = floor(current_balance/bid_price)
 if units:
     # SETUP ORDER
@@ -91,7 +92,7 @@ if units:
         action=Order.Action.BUY,
         order_type=Order.OrderType.LIMIT,
         price=bid_price,
-        product_id=16238669,
+        product_id=16954338,
         size=units,
         time_type=Order.TimeType.GOOD_TILL_DAY,
     )
